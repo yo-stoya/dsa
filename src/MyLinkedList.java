@@ -37,6 +37,7 @@ public class MyLinkedList {
             tail = temp;
             tail.next = null;
         }
+
         length--;
         return temp;
     }
@@ -51,6 +52,22 @@ public class MyLinkedList {
             head = newNode;
         }
         length++;
+    }
+
+    public Node removeFirst() {
+        if (length == 0) {
+            return null;
+        }
+
+        Node removed = head;
+        head = head.next;
+        removed.next = null;
+        length--;
+        if (length == 0) {
+            tail = null;
+        }
+
+        return removed;
     }
 
     public void printList() {
