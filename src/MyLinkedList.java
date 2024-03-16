@@ -70,6 +70,19 @@ public class MyLinkedList {
         return removed;
     }
 
+    public Node get(int index) {
+        if (index < 0 || index >= length) {
+            return  null;
+        }
+
+        Node currentNode = head;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+
+        return  currentNode;
+    }
+
     public void printList() {
         Node temp = head;
         while (temp != null) {
