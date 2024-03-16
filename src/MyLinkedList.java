@@ -28,7 +28,25 @@ public class MyLinkedList {
         tail = newNode;
         length++;
     }
+    public Node removeLast() {
+        if (length == 0) {
+            return null;
+        }
 
+        Node temp = head;
+        if (length == 1) {
+            head = null;
+            tail = null;
+        } else {
+            while (temp.next != tail) {
+                temp = temp.next;
+            }
+            tail = temp;
+            tail.next = null;
+        }
+        length--;
+        return temp;
+    }
 
     public void printList() {
         Node temp = head;
