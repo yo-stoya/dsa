@@ -72,7 +72,7 @@ public class MyLinkedList {
 
     public Node get(int index) {
         if (index < 0 || index >= length) {
-            return  null;
+            return null;
         }
 
         Node currentNode = head;
@@ -80,7 +80,17 @@ public class MyLinkedList {
             currentNode = currentNode.next;
         }
 
-        return  currentNode;
+        return currentNode;
+    }
+
+    public boolean set(int index, int newValue) {
+        Node temp = get(index);
+        if (temp == null) {
+            return  false;
+        }
+
+        temp.value = newValue;
+        return true;
     }
 
     public void printList() {
