@@ -102,12 +102,29 @@ public class MyLinkedList {
             append(value);
         } else {
             Node newNode = new Node(value);
-            Node prevNode = get(index - 1);
-            newNode.next = prevNode.next;
-            prevNode.next = newNode;
+            Node prev = get(index - 1);
+            newNode.next = prev.next;
+            prev.next = newNode;
             length++;
         }
         return true;
+    }
+
+    public Node remove(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        } else if (index == 0) {
+            return removeFirst();
+        } else if (index == length - 1) {
+            return removeLast();
+        } else {
+            Node prev = get(index - 1);
+            Node target = prev.next;
+            prev.next = target.next;
+            target.next = null;
+            length--;
+            return target;
+        }
     }
 
     public void printList() {
