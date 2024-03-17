@@ -83,13 +83,30 @@ public class MyLinkedList {
         return currentNode;
     }
 
-    public boolean set(int index, int newValue) {
+    public boolean set(int index, int value) {
         Node temp = get(index);
         if (temp == null) {
-            return  false;
+            return false;
         }
 
-        temp.value = newValue;
+        temp.value = value;
+        return true;
+    }
+
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) {
+            return false;
+        } else if (index == 0) {
+            prepend(value);
+        } else if (index == length) {
+            append(value);
+        } else {
+            Node newNode = new Node(value);
+            Node prevNode = get(index - 1);
+            newNode.next = prevNode.next;
+            prevNode.next = newNode;
+            length++;
+        }
         return true;
     }
 

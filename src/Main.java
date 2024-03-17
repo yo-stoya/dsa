@@ -12,6 +12,7 @@ public class Main {
 
         // myLinkedList.set(0, 10);                                 // => 10
 
+        // myLinkedList.insert(0, 10);                              // => true
         myLinkedList.printList();
     }
 }
